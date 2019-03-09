@@ -1,15 +1,12 @@
-$(document).ready(function() {
-    $('#btn').click(function() {
+function send(servletUrl) {
+    var textValue = $('#textField').val();
+    $.ajax({
+        url: servletUrl,
+        method: 'POST',
+        data: {"textFieldParam": textValue}, /* "textFieldParam" wird als Parameter in Servlet ansprechbar sein*/
 
-        var textValue = $('#textField').val();
-        $.ajax({
-            url: '/classHandler',  /* zu dieser Adresse soll einen Servlet gemappt werden. Er ist fürBearbeitung eines Requestes zuständig*/
-            method: 'POST',
-            data: {"textFieldParam": textValue}, /* "textFieldParam" wird als Parameter in Servlet ansprechbar sein*/
-
-            success: function resp(data) {
-                document.getElementById('foo').innerHTML = data;
-            }
-        });
+        success: function resp(data) {
+            document.getElementById('foo').innerHTML = data;
+        }
     });
-});
+}

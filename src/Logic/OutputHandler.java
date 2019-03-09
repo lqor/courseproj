@@ -1,6 +1,10 @@
 package Logic;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.tools.JavaCompiler;
 import javax.tools.StandardJavaFileManager;
@@ -13,13 +17,23 @@ import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
+/**patternString == String, der ausgegeben werden muss. Die Klasse behandelt den Request und überprüft, ob die Ausgabe
+ * auf Console gleich dem patternString ist
+ * */
 @SuppressWarnings({"Duplicates"})
-public class OutputHandler {
-    /**patternString == String, der ausgegeben werden muss. Die Klasse behandelt den Request und überprüft, ob die Ausgabe
-     * auf Console gleich dem patternString ist
-     * */
-    public String doPost(javax.servlet.http.HttpServletRequest request, String patternString) throws javax.servlet.ServletException, IOException {
-        String body = request.getParameter("inputTextArea"); //text from Area
+public class OutputHandler extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write(doPost(req, resp,"Hi, World!", "textFieldParam"));
+    }
+
+    private String doPost(javax.servlet.http.HttpServletRequest request, HttpServletResponse response,String patternString, String paramName) throws javax.servlet.ServletException, IOException {
+        String body = request.getParameter(paramName); //text from Area
 
         StringBuilder ret = new StringBuilder(); //return-String
 

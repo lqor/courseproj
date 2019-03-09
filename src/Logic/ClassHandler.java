@@ -24,6 +24,9 @@ import java.util.Iterator;
 @SuppressWarnings("Duplicates")
 public class ClassHandler extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request == null || response == null)
+            return;
+
         response.getWriter().write(doPost(request, "Person", new PatternClassForEx1()));
     }
 
@@ -38,7 +41,7 @@ public class ClassHandler extends HttpServlet {
         StringBuilder ret = new StringBuilder(); //return-String
 
         if(body == null || body.equals(""))
-            return null;
+            return "<h3>Nein, leider falsch. Kein Input!</h3>";
 
         try {
             boolean result = runCode(body, className, patternClass);

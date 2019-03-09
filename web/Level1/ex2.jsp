@@ -41,8 +41,8 @@
 
         <tr>
             <td class="inputTD">
-                <textarea id="textField" name="text"></textarea> <br/>
-                <input type="button" id="btn" value="Go"/><br/>
+                <textarea id="textField" name="text"></textarea> <br/><br/>
+                <input type="button" id="btn" value="Code ausführen" onclick="send('/classHandler');"/><br/>
             </td>
 
             <td class="outputTD">

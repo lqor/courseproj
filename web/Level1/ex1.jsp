@@ -6,6 +6,10 @@
     <style>
         <%@include file='../css/style.css' %>
     </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        <%@include file="../js/sendDataScript.js" %>
+    </script>
 </head>
 <body>
 <div class="container">
@@ -34,8 +38,7 @@
 
         <tr>
             <td class="inputTD">
-            <form method="post" >
-        <textarea name="inputTextArea" ><%--
+                <textarea id="textField" name="text" ><%--
                --%><%="public class test {\n" +
                    "   public static void main() {\n" +
                    "       //input your code here\n" +
@@ -43,19 +46,12 @@
                    "}"
                %><%--
         --%></textarea><br/><br/>
-                <input type="submit" value="Code ausführen" />
-            </form>
+                <input type="button" id="btn" value="Code ausführen" onclick="send('/outputHandler');"/><br/>
             </td>
 
             <td class="outputTD">
-        <%
-            String str = new OutputHandler().doPost(request, "Hi, World!");
-            if(str.contains("null"))
-                out.print("");
-            else
-                out.print(str);
-        %>
-                </td>
+                <div id="foo"></div>
+            </td>
         </tr>
     </table>
 

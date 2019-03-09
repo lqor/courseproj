@@ -9,21 +9,7 @@
 </head>
 <body>
 <div class="container">
-
-    <div class="sidebar">
-        <h4 class="sitename"><a href="../index.jsp">SITE NAME</a></h4>
-        <ul>
-            <li class="active"><a href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a></li>
-
-        </ul>
-    </div>
-
-    <div class="main">
-        <div class="content">
-            content
-        </div>
-    </div>
-
+sorry, nothing
 </div>
 </body>
 </html>

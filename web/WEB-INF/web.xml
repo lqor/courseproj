@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>ClassHAndler</servlet-name>
+        <servlet-class>Logic.ClassHandler</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ClassHAndler</servlet-name>
+        <url-pattern>/classHandler</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>l1</servlet-name>
+        <jsp-file>/Level1/l1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>l1</servlet-name>
+        <url-pattern>/Level1/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ex1</servlet-name>
+        <jsp-file>/Level1/ex1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ex1</servlet-name>
+        <url-pattern>/Level1/ex1</url-pattern>
+    </servlet-mapping>
+
+    <!---->
+    <servlet>
+        <servlet-name>ex2</servlet-name>
+        <jsp-file>/Level1/ex2.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ex2</servlet-name>
+        <url-pattern>/Level1/ex2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ClassHandler</servlet-name>
+        <servlet-class>Logic.ClassHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClassHandler</servlet-name>
+        <url-pattern>/Level1/ex2/handler</url-pattern>
+    </servlet-mapping>
+    <!---->
+
+
+    <servlet>
+        <servlet-name>ex3</servlet-name>
+        <jsp-file>/Level1/ex3.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ex3</servlet-name>
+        <url-pattern>/Level1/ex3</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

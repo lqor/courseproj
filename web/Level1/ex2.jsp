@@ -1,4 +1,4 @@
-<%@ page import="Logic.ClassHandler" %>
+<%@ page import="Logic.l1.Ex2" %>
 <%@ page import="Logic.PatternClasses.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -42,7 +42,7 @@
         <tr>
             <td class="inputTD">
                 <textarea id="textField" name="text"></textarea> <br/><br/>
-                <input type="button" id="btn" value="Code ausführen" onclick="send('/classHandler');"/><br/>
+                <input type="button" id="btn" value="Code ausführen" onclick="send('/ex2Handler');"/><br/>
             </td>
 
             <td class="outputTD">

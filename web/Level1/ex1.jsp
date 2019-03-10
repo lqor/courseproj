@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="Logic.OutputHandler" %>
+<%@page import="Logic.l1.Ex1" %>
 <html>
 <head>
     <title> Aufgabe 1 </title>
@@ -39,7 +39,7 @@
         <tr>
             <td class="inputTD">
                 <textarea id="textField" name="text" ><%--
-               --%><%="public class test {\n" +
+               --%><%="public class Example1 {\n" +
                    "   public static void main() {\n" +
                    "       //input your code here\n" +
                    "   }\n" +
@@ -50,7 +50,9 @@
             </td>
 
             <td class="outputTD">
-                <div id="foo"></div>
+                <div id="foo"></div> <%--
+
+                --%>
             </td>
         </tr>
     </table>

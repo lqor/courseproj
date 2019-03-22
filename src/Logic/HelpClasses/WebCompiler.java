@@ -73,8 +73,7 @@ public class WebCompiler {
 
         URL[] urls = new URL[]{new File("").toURI().toURL()};
         URLClassLoader urlClassLoader = new URLClassLoader(urls);
-
-        //return urlClassLoader.loadClass(className).getConstructor().newInstance();
+        
         Map<String, Object> objectMap = new HashMap<>();
 
         objectMap.put(className1, urlClassLoader.loadClass(className1).getConstructor().newInstance());

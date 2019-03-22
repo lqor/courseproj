@@ -3,7 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--Index-->
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+    <!--Handlers-->
     <servlet>
         <servlet-name>ClassHandler</servlet-name>
         <servlet-class>Logic.l1.Ex2</servlet-class>
@@ -17,22 +28,23 @@
         <servlet-name>OutputHandler</servlet-name>
         <servlet-class>Logic.l1.Ex1</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>OutputHandler</servlet-name>
         <url-pattern>/outputHandler</url-pattern>
     </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>index</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern></url-pattern>
-    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Ex3handler</servlet-name>
+        <servlet-class>Logic.l1.Ex3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ex3handler</servlet-name>
+        <url-pattern>/ex3Handler</url-pattern>
+    </servlet-mapping>
+    
+
+
+    <!--Levels-->
     <servlet>
         <servlet-name>l1</servlet-name>
         <jsp-file>/Level1/l1.jsp</jsp-file>
@@ -42,34 +54,54 @@
         <url-pattern>/Level1/</url-pattern>
     </servlet-mapping>
 
+
+    <!--Exercises -->
     <servlet>
         <servlet-name>ex1</servlet-name>
-        <jsp-file>/Level1/ex1.jsp</jsp-file>
+        <jsp-file>/Level1/exercises/ex1.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ex1</servlet-name>
-        <url-pattern>/Level1/ex1</url-pattern>
+        <url-pattern>/Level1/exercises/ex1</url-pattern>
     </servlet-mapping>
 
-    <!---->
+
     <servlet>
         <servlet-name>ex2</servlet-name>
-        <jsp-file>/Level1/ex2.jsp</jsp-file>
+        <jsp-file>/Level1/exercises/ex2.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ex2</servlet-name>
-        <url-pattern>/Level1/ex2</url-pattern>
+        <url-pattern>/Level1/exercises/ex2</url-pattern>
     </servlet-mapping>
-    <!---->
 
 
     <servlet>
         <servlet-name>ex3</servlet-name>
-        <jsp-file>/Level1/ex3.jsp</jsp-file>
+        <jsp-file>/Level1/exercises/ex3.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ex3</servlet-name>
-        <url-pattern>/Level1/ex3</url-pattern>
+        <url-pattern>/Level1/exercises/ex3</url-pattern>
+    </servlet-mapping>
+    
+    <!--Lectures-->
+    <servlet>
+        <servlet-name>vo1</servlet-name>
+        <jsp-file>/Level1/lectures/vo1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vo1</servlet-name>
+        <url-pattern>/Level1/lectures/vo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>vo2</servlet-name>
+        <jsp-file>/Level1/lectures/vo2.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vo2</servlet-name>
+        <url-pattern>/Level1/lectures/vo2</url-pattern>
     </servlet-mapping>
 
 

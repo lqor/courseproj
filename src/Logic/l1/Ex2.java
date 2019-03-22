@@ -1,18 +1,13 @@
 package Logic.l1;
 
+import Logic.HelpClasses.WebCompiler;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.tools.JavaCompiler;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.ToolProvider;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
-import java.net.URL;
-import java.net.URLClassLoader;
 
 
 /**Zurzeit sieht so aus, dass es Sinn macht für jede Aufgabe seine eigene Klasse zu erstellen.
@@ -58,6 +53,7 @@ public class Ex2 extends HttpServlet {
         Object object = null;
         boolean classNameTask = false;
         boolean publicTask = true;
+        WebCompiler webCompiler = new WebCompiler();
 
         if(code.contains("class ")) {
             className = extractClassName(code);
@@ -76,25 +72,7 @@ public class Ex2 extends HttpServlet {
         }
 
         try {
-            JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
-            StandardJavaFileManager sjfm = javaCompiler.getStandardFileManager(null, null, null);
-
-            File jfile = new File(className+".java"); //create file in current working directory
-
-            PrintWriter pw = new PrintWriter(jfile);
-
-            pw.println(code); //write a code to File
-            pw.close();
-
-            Iterable fO = sjfm.getJavaFileObjects(jfile);
-            if(!javaCompiler.getTask(null,sjfm,null,null,null,fO).call()) { //compile the code
-                throw new Exception("compilation failed");
-            }
-
-            URL[] urls = new URL[]{new File("").toURI().toURL()}; //use current working directory
-            URLClassLoader urlClassLoader = new URLClassLoader(urls);
-
-            object = urlClassLoader.loadClass(className).newInstance(); //class as Object
+            object = webCompiler.compileString(code, className);
         } catch (Exception e) {
             stringResponse.append(noCompileResponse);
             return;

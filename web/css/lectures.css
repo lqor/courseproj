@@ -1,0 +1,35 @@
+.text-red {
+    color: #a31515;
+}
+
+.text-darkyellow {
+    color: #a1851b;
+}
+
+.text-lightgreen {
+    color: #04bf05;
+}
+
+
+.text-viola {
+    color: #871dc1;
+}
+
+.table-lecture-container {
+
+}
+
+.lectureContent {
+    font-size: 23px;
+    font-family: Lato, Helvetica, Roboto, sans-serif;
+    padding: 30px 60px;
+}
+
+
+.lecture-table {
+    box-sizing: border-box;
+    position: relative;
+
+    left: 0;
+    width: 50%;
+}

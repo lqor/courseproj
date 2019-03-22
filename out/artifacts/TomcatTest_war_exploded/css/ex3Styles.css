@@ -1,0 +1,52 @@
+#table-task-container-ex3 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+
+    position: fixed;
+    top:0;
+    right:0;
+    width: 93%;
+    height: 100%;
+
+    overflow-y: auto;
+}
+
+#table-task-container-ex3 tr {
+    padding: 0;
+}
+
+#table-task-container-ex3 table {
+    border-spacing: 0px;
+}
+
+#table-task-container-ex3 td {
+    padding: 0px
+}
+
+#table-task-container-ex3 textarea {
+    height: 400px;
+    width: 100%;
+    padding: 0px
+}
+
+#task-list p {
+    font-size: 1.6em;
+}
+
+#table-task-container-ex3 .inputTD {
+    width: 48%;
+    position: relative;
+
+}
+
+#table-task-container-ex3 .outputTD {
+    vertical-align: top;
+
+    width: 52%;
+    position: relative;
+}
+
+#btn {
+    width: 20em;
+    height: 6em;
+}

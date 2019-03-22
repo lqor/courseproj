@@ -1,21 +1,16 @@
 package Logic.l1;
 
+import Logic.HelpClasses.WebCompiler;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.tools.JavaCompiler;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.ToolProvider;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.nio.file.Files;
-import java.util.Arrays;
 
 /**patternString == String, der ausgegeben werden muss. Die Klasse behandelt den Request und überprüft, ob die Ausgabe
  * auf Console gleich dem patternString ist
@@ -62,30 +57,13 @@ public class Ex1 extends HttpServlet {
         }
     }
 
-    //Until "getResultFromMethode" is copypast
-    //runCode liefert zurück, ob der eingegebene Code zur Console "patternString" printet
     private boolean runCode(String code, String patternString) throws Exception {
         // patternStriing = String, mit dem die Ausgabe verglichen wird
         Object object = null;
+        WebCompiler webCompiler = new WebCompiler();
+
         try {
-            JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
-            StandardJavaFileManager sjfm = javaCompiler.getStandardFileManager(null, null, null);
-
-            File jfile = new File("Example1.java"); //create file in current working directory
-
-            PrintWriter pw = new PrintWriter(jfile);
-            pw.println(code); //write a code to File
-            pw.close();
-
-            Iterable fO = sjfm.getJavaFileObjects(jfile);
-            if(!javaCompiler.getTask(null,sjfm,null,null,null,fO).call()) { //compile the code
-                throw new Exception("compilation failed");
-            }
-
-            URL[] urls = new URL[]{new File("").toURI().toURL()}; //use current working directory
-            URLClassLoader urlClassLoader = new URLClassLoader(urls);
-
-            object = urlClassLoader.loadClass("Example1").newInstance(); //class as Object
+            object = webCompiler.compileString(code, "Example1");
         } catch (Exception e) {
             return false;
         }
@@ -110,7 +88,8 @@ public class Ex1 extends HttpServlet {
 
         // die Methode wird ausgeführt und das Ergebnis mittels System.out.println()... nach .out printen, was
         // bei uns dem File entspricht
-        object.getClass().getMethod("main").invoke(object);
+        String[] params = null;
+        object.getClass().getMethod("main", String[].class).invoke(null, (Object) params);
 
         StringBuilder stringBuilder = new StringBuilder();
         Files.lines(file.toPath()).takeWhile(line -> line != null).forEach(stringBuilder::append); //read all from File

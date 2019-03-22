@@ -26,11 +26,12 @@ body {
 	width: 6%;
 	height: 100%;
 	background-color: #44a0b5;
+	position: fixed;
 }
 
 .main {
 	float: right;
-	width: 80%;
+	width: 94%;
 	height: 100%;
 	background-color: white;
 }
@@ -113,16 +114,27 @@ table {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 14px;
 
-	width: 85%;
-	height: 95%;
+	width: 100%;
+	height: 100%;
 
-	position: relative;
-	padding: 6px;
+	padding: 6px 6px 10px;
 
 	border-spacing: 35px;
 }
 
+.table-task-container {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+
+    position: fixed;
+    top:0;
+    right:0;
+    width: 93%;
+    height: 100%;
+}
+
 .inputTD {
+	vertical-align: top;
 	width: 73%;
 }
 
@@ -147,3 +159,9 @@ textarea {
 	font-size: 2em;
 	height: 700px;
 }
+
+/*Task*/
+.task-description {
+
+}
+
